@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mesopelagic Anglers Fishing Charters</title>
+  <meta name="description" content="Private Cebu sportfishing charters from Hadsan Beach Park to the Danajon Bank, Caubian Islands, and deep blue Visayan Sea channels.">
+  <style>
+    :root {
+      --ink: #082033;
+      --muted: #5b6d7b;
+      --line: #d8e4ea;
+      --sea: #075d81;
+      --deep: #061929;
+      --aqua: #00a9ce;
+      --orange: #f36f21;
+      --green: #2f8d68;
+      --mist: #f4f8f9;
+      --foam: #ffffff;
+      --shadow: 0 18px 45px rgba(6, 25, 41, .16);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--foam);
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px clamp(18px, 4vw, 56px);
+      color: var(--foam);
+      background: linear-gradient(180deg, rgba(6, 25, 41, .86), rgba(6, 25, 41, .42));
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.7);
+    }
+
+    .brand span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: rgba(255,255,255,.9);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      border-color: var(--orange);
+    }
+
+    .header-cta,
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .header-cta,
+    .primary-btn {
+      color: var(--foam);
+      background: var(--orange);
+      box-shadow: 0 12px 24px rgba(243, 111, 33, .28);
+    }
+
+    .secondary-btn {
+      color: var(--foam);
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.38);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      color: var(--foam);
+      background-image:
+        linear-gradient(90deg, rgba(6, 25, 41, .88) 0%, rgba(6, 25, 41, .66) 44%, rgba(6, 25, 41, .2) 100%),
+        url("assets/hero-boat.jpeg");
+      background-size: cover;
+      background-position: center;
+      padding: 110px clamp(18px, 4vw, 56px) 48px;
+    }
+
+    .hero-content {
+      width: min(760px, 100%);
+      padding-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #aeeaff;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--orange);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 20px;
+      font-size: clamp(44px, 7vw, 88px);
+      line-height: .95;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 670px;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      width: min(860px, 100%);
+      border-top: 1px solid rgba(255,255,255,.28);
+      border-bottom: 1px solid rgba(255,255,255,.28);
+      background: rgba(6, 25, 41, .28);
+    }
+
+    .hero-stat {
+      padding: 18px 16px;
+      border-right: 1px solid rgba(255,255,255,.2);
+    }
+
+    .hero-stat:last-child {
+      border-right: 0;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .hero-stat span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.74);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    main section {
+      padding: 76px clamp(18px, 4vw, 56px);
+    }
+
+    .section-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 420px);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(31px, 4vw, 54px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .fleet {
+      background: var(--mist);
+    }
+
+    .fleet-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .feature-image {
+      overflow: hidden;
+      border-radius: 8px;
+      min-height: 420px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .spec-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .spec {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--foam);
+    }
+
+    .spec strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--sea);
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    .spec p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .sessions {
+      background: var(--foam);
+    }
+
+    .session-grid,
+    .price-grid,
+    .grounds-grid,
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .session-card,
+    .price-card,
+    .ground-card,
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--foam);
+      overflow: hidden;
+    }
+
+    .session-card {
+      min-height: 236px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .session-time {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--sea);
+      font-weight: 900;
+    }
+
+    .tag {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: var(--deep);
+      background: #d8f4ef;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .destinations {
+      color: var(--foam);
+      background: var(--deep);
+    }
+
+    .destinations .section-heading p {
+      color: rgba(255,255,255,.72);
+    }
+
+    .destinations .section-heading h2 {
+      color: var(--foam);
+    }
+
+    .map-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .map-frame {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .map-frame img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .ground-card {
+      padding: 22px;
+      color: var(--ink);
+      background: var(--foam);
+    }
+
+    .ground-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .ground-card p {
+      color: var(--muted);
+    }
+
+    .ground-card ul,
+    .policy-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .ground-card li,
+    .policy-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .ground-card li::before,
+    .policy-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .7em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .price-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .price-card {
+      padding: 26px;
+      box-shadow: 0 10px 30px rgba(8, 32, 51, .08);
+    }
+
+    .price-card h3 {
+      margin-bottom: 10px;
+      font-size: 27px;
+    }
+
+    .price-table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .price-table th {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .price-table td:last-child {
+      text-align: right;
+      color: var(--sea);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .quote-tool {
+      margin-top: 24px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--mist);
+    }
+
+    .quote-controls {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    select,
+    input {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--ink);
+      background: var(--foam);
+    }
+
+    .quote-result {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .quote-metric {
+      padding: 16px;
+      border-radius: 8px;
+      background: var(--foam);
+      border: 1px solid var(--line);
+    }
+
+    .quote-metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .quote-metric strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--sea);
+      font-size: 24px;
+    }
+
+    .inclusions {
+      background: var(--mist);
+    }
+
+    .inclusion-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(320px, 1.1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .inclusion-panel {
+      border-radius: 8px;
+      padding: 26px;
+      color: var(--foam);
+      background: var(--sea);
+      box-shadow: var(--shadow);
+    }
+
+    .inclusion-panel p {
+      color: rgba(255,255,255,.78);
+    }
+
+    .inclusion-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .inclusion-list li {
+      min-height: 74px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--foam);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.3fr .85fr .85fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .gallery img:first-child {
+      height: 534px;
+      grid-row: span 2;
+    }
+
+    .faq {
+      background: var(--foam);
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .faq-item button {
+      width: 100%;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 0;
+      padding: 18px 20px;
+      color: var(--ink);
+      background: var(--foam);
+      cursor: pointer;
+      text-align: left;
+      font-weight: 900;
+    }
+
+    .faq-item button span:last-child {
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--sea);
+      background: var(--mist);
+      font-size: 20px;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px;
+      color: var(--muted);
+    }
+
+    .faq-item.is-open .faq-answer {
+      display: block;
+    }
+
+    .booking {
+      color: var(--foam);
+      background:
+        linear-gradient(90deg, rgba(6,25,41,.94), rgba(7,93,129,.84)),
+        url("assets/boat-trailer.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .booking h2 {
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.02;
+      margin-bottom: 18px;
+    }
+
+    .booking p {
+      color: rgba(255,255,255,.78);
+      font-size: 18px;
+    }
+
+    .booking-panel {
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 8px;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(14px);
+    }
+
+    .booking-panel dl {
+      display: grid;
+      gap: 14px;
+      margin: 0 0 22px;
+    }
+
+    .booking-panel dt {
+      color: #aeeaff;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .booking-panel dd {
+      margin: 4px 0 0;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 34px clamp(18px, 4vw, 56px);
+      color: rgba(255,255,255,.7);
+      background: var(--deep);
+    }
+
+    footer .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      nav {
+        display: none;
+      }
+
+      .hero-stats,
+      .session-grid,
+      .grounds-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-heading,
+      .fleet-layout,
+      .map-layout,
+      .inclusion-layout,
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .price-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery img:first-child {
+        grid-column: span 2;
+        height: 360px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .site-header {
+        padding: 12px 16px;
+      }
+
+      .brand span {
+        max-width: 160px;
+      }
+
+      .header-cta {
+        min-height: 40px;
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 94vh;
+        padding: 96px 18px 28px;
+        background-position: 63% center;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .hero-stats,
+      .session-grid,
+      .grounds-grid,
+      .quote-controls,
+      .quote-result,
+      .inclusion-list,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stat {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.18);
+      }
+
+      .hero-stat:last-child {
+        border-bottom: 0;
+      }
+
+      main section {
+        padding: 56px 18px;
+      }
+
+      .feature-image {
+        min-height: 280px;
+      }
+
+      .price-table {
+        font-size: 14px;
+      }
+
+      .price-table td:last-child {
+        white-space: normal;
+      }
+
+      .gallery img,
+      .gallery img:first-child {
+        grid-column: auto;
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Mesopelagic Anglers home">
+      <img src="assets/logo.png" alt="">
+      <span>Mesopelagic Anglers</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#fleet">Fleet</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#grounds">Fishing Grounds</a>
+      <a href="#rates">Rates</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="header-cta" href="#book">Book</a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Private sportfishing charters from Mactan, Cebu</p>
+        <h1 id="hero-title">Mesopelagic Anglers Fishing Charters</h1>
+        <p>Run offshore from Hadsan Beach Park aboard a New Zealand-built Extreme 5.7M Game King, targeting the Danajon Bank, Caubian Islands, and deep blue Visayan Sea channels with premium sonar, lights, tackle, and crew.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#rates">View Packages</a>
+          <a class="secondary-btn" href="#grounds">Explore Fishing Grounds</a>
+        </div>
+        <div class="hero-stats" aria-label="Charter highlights">
+          <div class="hero-stat"><strong>4</strong><span>Angler private cap</span></div>
+          <div class="hero-stat"><strong>1,800 ft</strong><span>Garmin sonar depth</span></div>
+          <div class="hero-stat"><strong>400W</strong><span>Blue night lights</span></div>
+          <div class="hero-stat"><strong>14 hr</strong><span>Full-day expedition</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fleet" id="fleet">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>A serious offshore platform for Cebu's deep channels.</h2>
+          <p>Built for current, steep drop-offs, and long runs beyond the crowded tourist paths.</p>
+        </div>
+        <div class="fleet-layout">
+          <div class="feature-image">
+            <img src="assets/boat-trailer.jpeg" alt="Mesopelagic Anglers Extreme 5.7M Game King on its trailer">
+          </div>
+          <div class="spec-grid">
+            <article class="spec">
+              <strong>The Vessel</strong>
+              <p>New Zealand-built Extreme Boats 5.7M Extreme Game King with heavy-duty aluminum hull, deep-V design, flooded keel stability, and enclosed hardtop.</p>
+            </article>
+            <article class="spec">
+              <strong>The Power</strong>
+              <p>Brand new 2026 Yamaha F150FETX four-stroke outboard with 2 x 100AH batteries and a 700W solar generator for electric reels and phone charging.</p>
+            </article>
+            <article class="spec">
+              <strong>The Eyes</strong>
+              <p>Garmin ECHOMAP UHD2 92cv paired with GT51M-TM transducer, scanning structure and bait across deep-water contours.</p>
+            </article>
+            <article class="spec">
+              <strong>The Night Shift</strong>
+              <p>Custom 400W underwater blue lights attract bait schools and trigger predatory feeding activity directly under the deck.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sessions" id="sessions">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Choose the feeding window that fits your crew.</h2>
+          <p>Departures are timed around tides, light shifts, and productive bite periods.</p>
+        </div>
+        <div class="session-grid">
+          <article class="session-card">
+            <span class="tag">Golden hour</span>
+            <h3>Morning Session</h3>
+            <p>Targets aggressive sunrise surface-feeding pelagics and early current movement.</p>
+            <div class="session-time">5:00 AM to 11:00 AM</div>
+          </article>
+          <article class="session-card">
+            <span class="tag">Sunset drift</span>
+            <h3>Afternoon Session</h3>
+            <p>Late-afternoon bite with a scenic sunset run back to Hadsan Beach Park.</p>
+            <div class="session-time">1:00 PM to 7:00 PM</div>
+          </article>
+          <article class="session-card">
+            <span class="tag">Night hunters</span>
+            <h3>Nocturnal Session</h3>
+            <p>A 12-hour deep-sea marathon built around the 400W underwater blue light array.</p>
+            <div class="session-time">5:00 PM to 5:00 AM</div>
+          </article>
+          <article class="session-card">
+            <span class="tag">Best value</span>
+            <h3>Full-Day Expedition</h3>
+            <p>Fourteen hours spanning both morning and afternoon bites, with the afternoon portion discounted.</p>
+            <div class="session-time">5:00 AM to 7:00 PM</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="destinations" id="grounds">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Fish the Middle Pass, Caubian Islands, and Danajon Bank.</h2>
+          <p>Each package is built around different current lines, drop-offs, and offshore target species.</p>
+        </div>
+        <div class="map-layout">
+          <figure class="map-frame">
+            <img src="assets/route-map.png" alt="Marine chart showing Lapu-Lapu City, Camotes Sea, and offshore fishing route markers">
+          </figure>
+          <div class="grounds-grid">
+            <article class="ground-card">
+              <h3>Caubian Wall</h3>
+              <p>Deep drop-offs and current breaks for trophy structure fishing.</p>
+              <ul>
+                <li>Mamsa, Tanguigue, Barracuda</li>
+                <li>Shallow jigging and high-speed trolling</li>
+              </ul>
+            </article>
+            <article class="ground-card">
+              <h3>Outer Barrier Seamounts</h3>
+              <p>Offshore bottom terrain for reef predators and deep-water table fish.</p>
+              <ul>
+                <li>Lapu-Lapu, Ahaan, Katambak</li>
+                <li>Slow-pitch vertical jigging</li>
+              </ul>
+            </article>
+            <article class="ground-card">
+              <h3>Middle Pass Drift</h3>
+              <p>Moving water and bait lanes for schooling jacks and migrating tuna.</p>
+              <ul>
+                <li>Jacks and Yellowfin Tuna</li>
+                <li>Light casting and shallow trolling</li>
+              </ul>
+            </article>
+            <article class="ground-card">
+              <h3>Deep Blue Danajon</h3>
+              <p>The long-range offshore run for serious sportfishing teams.</p>
+              <ul>
+                <li>Yellowfin, Amberjack, Ruby Snapper</li>
+                <li>Topwater, trolling, and deep drops</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rates" id="rates">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Private rates for up to four anglers.</h2>
+          <p>All packages include captain, deckhand, fuel, docking fees, premium tackle, jigs, cooler ice, and media capture.</p>
+        </div>
+        <div class="price-grid">
+          <article class="price-card">
+            <span class="tag">Tier 1</span>
+            <h3>The Middle Pass & Caubian Islands</h3>
+            <p>Target Mamsa, trophy Tanguigue, Barracudas, snapper, and grouper around premium reef structure.</p>
+            <table class="price-table">
+              <thead><tr><th>Session</th><th>Private Rate</th></tr></thead>
+              <tbody>
+                <tr><th>6-hour day session</th><td>₱34,328</td></tr>
+                <tr><th>12-hour night session</th><td>₱44,626.40</td></tr>
+                <tr><th>14-hour full day</th><td>₱51,492</td></tr>
+              </tbody>
+            </table>
+          </article>
+          <article class="price-card">
+            <span class="tag">Tier 2</span>
+            <h3>The Deep Blue Danajon Banks</h3>
+            <p>The ultimate offshore run for Yellowfin Tuna, Amberjack, Ruby Snapper, Barracuda, and deep reef predators.</p>
+            <table class="price-table">
+              <thead><tr><th>Session</th><th>Private Rate</th></tr></thead>
+              <tbody>
+                <tr><th>6-hour day session</th><td>₱43,736</td></tr>
+                <tr><th>12-hour night session</th><td>₱56,856.80</td></tr>
+                <tr><th>14-hour full day</th><td>₱65,604</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+
+        <div class="quote-tool" aria-labelledby="quote-title">
+          <h3 id="quote-title">Estimate Your Split</h3>
+          <div class="quote-controls">
+            <label>Package
+              <select id="packageSelect">
+                <option value="tier1">Tier 1: Middle Pass</option>
+                <option value="tier2">Tier 2: Deep Blue Danajon</option>
+              </select>
+            </label>
+            <label>Session
+              <select id="sessionSelect">
+                <option value="day">6-hour day session</option>
+                <option value="night">12-hour night session</option>
+                <option value="full">14-hour full day</option>
+              </select>
+            </label>
+            <label>Anglers
+              <input id="anglerInput" type="number" min="1" max="4" value="4">
+            </label>
+          </div>
+          <div class="quote-result" aria-live="polite">
+            <div class="quote-metric"><span>Total</span><strong id="quoteTotal">₱34,328</strong></div>
+            <div class="quote-metric"><span>Per Person</span><strong id="quotePerson">₱8,582</strong></div>
+            <div class="quote-metric"><span>50% Deposit</span><strong id="quoteDeposit">₱17,164</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="inclusions" id="included">
+      <div class="section-inner">
+        <div class="inclusion-layout">
+          <div class="inclusion-panel">
+            <p class="eyebrow">Everything included</p>
+            <h2>Bring food, drinks, and your crew. The boat brings the rest.</h2>
+            <p>Each booking includes the offshore platform, marine electronics, crew, tackle armory, fuel coverage, destination fees, media documentation, and cooler ice. Food and beverages are BYO.</p>
+          </div>
+          <ul class="inclusion-list">
+            <li>Extreme 5.7M Game King hull and Yamaha F150FETX motor</li>
+            <li>Garmin UHD2 92cv with GT51M-TM sonar tracking</li>
+            <li>Cannon Uni-Troll 5 ST downrigger for precision trolling</li>
+            <li>Shimano, Daiwa, Bullzen, jigs, trolling lures, and electric reel access</li>
+            <li>Licensed marine captain and professional fishing deckhand</li>
+            <li>GoPro Hero 13 and DJI Osmo Action 4 trip documentation</li>
+            <li>Full fuel, docking fees, post-trip washdown, and towing protection</li>
+            <li>Raptor 55T cooler packed with fresh ice for drinks and catches</li>
+          </ul>
+        </div>
+        <div class="gallery" aria-label="Charter gallery">
+          <img src="assets/gallery-1.jpeg" alt="Fishing charter equipment and water scene">
+          <img src="assets/gallery-2.jpeg" alt="Fishing charter gear detail">
+          <img src="assets/gallery-3.jpeg" alt="Fishing charter catch and equipment detail">
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>Common questions before you launch.</h2>
+          <p>Short answers for planning, safety, gear, food, and weather calls.</p>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item is-open">
+            <button type="button"><span>Do I need to bring rods and reels?</span><span>+</span></button>
+            <div class="faq-answer">No. Premium rod and reel rentals, trolling lures, specialized jigs, and heavy-duty setups are included. You can still bring a favorite personal rod if you want.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button"><span>Can more than four people join?</span><span>+</span></button>
+            <div class="faq-answer">No. The boat is capped at four total guests, whether fishing or spectating, to preserve deck space, safety, and the private charter experience.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button"><span>Are food and drinks provided?</span><span>+</span></button>
+            <div class="faq-answer">Food and beverages are bring-your-own. The charter provides a commercial-grade marine cooler packed with fresh ice.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button"><span>What happens if weather is unsafe?</span><span>+</span></button>
+            <div class="faq-answer">If the Captain deems sea conditions unsafe, guests can choose a priority reschedule date or an unconditional 100% refund of the deposit.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button"><span>Can we keep the fish?</span><span>+</span></button>
+            <div class="faq-answer">Yes. Your catch belongs to you. The crew bleeds, washes, ices, and helps bag the fish when you return to Hadsan Beach Park.</div>
+          </article>
+          <article class="faq-item">
+            <button type="button"><span>Is trip media included?</span><span>+</span></button>
+            <div class="faq-answer">Yes. GoPro Hero 13 and DJI Osmo Action 4 media documentation is complimentary, with raw footage and hero photos transferred after docking.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="book">
+      <div class="section-inner booking-layout">
+        <div>
+          <p class="eyebrow">Launch from Hadsan Beach Park</p>
+          <h2>Lock your private offshore date.</h2>
+          <p>Send Mesopelagic Anglers your preferred date, package, session, and angler count. A 50% deposit secures the calendar slot, with the balance settled before boarding.</p>
+          <ul class="policy-list">
+            <li>Arrive 15 minutes before departure at the Hadsan boat ramp.</li>
+            <li>100% refund for client cancellations 7 or more days before departure.</li>
+            <li>On-site rooms, coffee, restaurants, and guarded parking are available at Hadsan Beach Park.</li>
+          </ul>
+        </div>
+        <aside class="booking-panel" aria-label="Booking details">
+          <dl>
+            <div>
+              <dt>Community</dt>
+              <dd>Mesopelagic Anglers on Facebook</dd>
+            </div>
+            <div>
+              <dt>Base of Operations</dt>
+              <dd>Hadsan Beach Park, Lapu-Lapu City, Mactan, Cebu</dd>
+            </div>
+            <div>
+              <dt>Payment Gateways</dt>
+              <dd>GCash and BPI bank transfer details are provided during booking confirmation.</dd>
+            </div>
+          </dl>
+          <a class="primary-btn" href="https://www.facebook.com/search/top?q=Mesopelagic%20Anglers">Message on Facebook</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-inner">
+      <strong>Mesopelagic Anglers Fishing Charters</strong>
+      <span>Private Cebu sportfishing charters from Hadsan Beach Park.</span>
+    </div>
+  </footer>
+
+  <script>
+    const rates = {
+      tier1: { day: 34328, night: 44626.40, full: 51492 },
+      tier2: { day: 43736, night: 56856.80, full: 65604 }
+    };
+
+    const peso = new Intl.NumberFormat("en-PH", {
+      style: "currency",
+      currency: "PHP",
+      maximumFractionDigits: 2
+    });
+
+    const packageSelect = document.querySelector("#packageSelect");
+    const sessionSelect = document.querySelector("#sessionSelect");
+    const anglerInput = document.querySelector("#anglerInput");
+    const quoteTotal = document.querySelector("#quoteTotal");
+    const quotePerson = document.querySelector("#quotePerson");
+    const quoteDeposit = document.querySelector("#quoteDeposit");
+
+    function updateQuote() {
+      const anglers = Math.min(4, Math.max(1, Number(anglerInput.value) || 1));
+      anglerInput.value = anglers;
+      const total = rates[packageSelect.value][sessionSelect.value];
+      quoteTotal.textContent = peso.format(total);
+      quotePerson.textContent = peso.format(total / anglers);
+      quoteDeposit.textContent = peso.format(total / 2);
+    }
+
+    [packageSelect, sessionSelect, anglerInput].forEach((control) => {
+      control.addEventListener("input", updateQuote);
+      control.addEventListener("change", updateQuote);
+    });
+    updateQuote();
+
+    document.querySelectorAll(".faq-item button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        item.classList.toggle("is-open");
+      });
+    });
+  </script>
+</body>
+</html>
